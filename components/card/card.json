@@ -1,0 +1,74 @@
+{
+  "name": "Card",
+  "status": "done",
+  "level": "molecule",
+  "category": "Content",
+  "description": "Carte de contenu : image, badge, titre, méta et texte ; entièrement cliquable si elle a un lien.",
+  "variants": {
+    "layout": {
+      "label": "Disposition",
+      "type": "select",
+      "default": "vertical",
+      "options": ["vertical", "horizontal"]
+    },
+    "appearance": {
+      "label": "Apparence",
+      "type": "select",
+      "default": "outlined",
+      "options": ["outlined", "elevated", "filled"]
+    },
+    "imageRatio": {
+      "label": "Ratio de l'image",
+      "type": "select",
+      "default": "16:9",
+      "options": ["16:9", "4:3", "1:1"]
+    },
+    "headingLevel": {
+      "label": "Niveau de titre",
+      "type": "select",
+      "default": "h3",
+      "options": ["h2", "h3", "h4"]
+    }
+  },
+  "content": {
+    "image": {
+      "label": "Image",
+      "type": "image",
+      "default": { "src": "", "alt": "" }
+    },
+    "badge": {
+      "label": "Badge",
+      "type": "text",
+      "default": ""
+    },
+    "title": {
+      "label": "Titre",
+      "type": "text",
+      "default": "Titre de la carte"
+    },
+    "meta": {
+      "label": "Méta (date, auteur…)",
+      "type": "text",
+      "default": ""
+    },
+    "text": {
+      "label": "Texte",
+      "type": "text",
+      "default": ""
+    },
+    "href": {
+      "label": "Lien",
+      "type": "text",
+      "default": "",
+      "stress": false
+    }
+  },
+  "preview": {
+    "image": { "src": "/__openui/fake-image/1600x900.svg", "alt": "" },
+    "badge": "Nouveau",
+    "title": "Rénovation d'un atelier en centre-ville",
+    "meta": "12 mars 2026",
+    "text": "Un ancien atelier de menuiserie transformé en espace de travail lumineux, en gardant sa charpente d'origine.",
+    "href": "/realisations/atelier"
+  }
+}

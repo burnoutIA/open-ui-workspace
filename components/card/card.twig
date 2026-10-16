@@ -1,0 +1,10 @@
+{% set ratioClass = imageRatio|replace({':': '-'}) -%}
+<article class="card card--{{ layout }} card--{{ appearance }}{% if href %} card--link{% endif %}">
+  {% if image.src %}<div class="card__media card__media--{{ ratioClass }}"><img class="card__image" src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy"></div>
+  {% endif %}<div class="card__body">
+    {% if badge %}<div class="card__badge">{% include 'dev/components/badge/badge.twig' with { text: badge, tone: 'info' } only %}</div>
+    {% endif %}<{{ headingLevel }} class="card__title">{% if href %}<a class="card__link" href="{{ href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</{{ headingLevel }}>
+    {% if meta %}<p class="card__meta">{{ meta }}</p>
+    {% endif %}{% if text %}<p class="card__text">{{ text }}</p>
+    {% endif %}</div>
+</article>
