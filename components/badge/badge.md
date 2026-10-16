@@ -17,6 +17,7 @@ Tonalités : `neutral` (par défaut, information sans jugement), `info`, `succes
 
 - La tonalité n'est qu'un renfort : le texte doit porter seul le sens (« Rejeté », pas une simple pastille rouge).
 - Rôles `--color-{tonalité}-text` sur `--color-{tonalité}-surface` : chaque paire dépasse 4.5:1, vérifiée par `npm run health`.
+- Un texte long passe à la ligne (rectangle arrondi) et un mot interminable se coupe : le badge ne sort jamais de son conteneur. Il reste fait pour un ou deux mots.
 - Élément `<span>` sans rôle : si le statut change dynamiquement, c'est au conteneur d'annoncer le changement.
 
 ## Exemples

@@ -5,9 +5,12 @@
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--leading-normal);
-  white-space: nowrap;
+  // Un texte long passe à la ligne et un mot interminable se coupe : le badge ne sort jamais de son conteneur.
+  max-width: 100%;
+  overflow-wrap: anywhere;
   border: 1px solid currentcolor;
-  border-radius: var(--radius-full);
+  // Demi-hauteur d'une ligne : pilule sur une ligne, rectangle arrondi sur plusieurs (pas d'ellipse).
+  border-radius: calc(var(--leading-normal) * 0.5em + 1px);
 
   &--neutral {
     color: var(--color-text-muted);
