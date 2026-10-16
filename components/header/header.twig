@@ -1,0 +1,14 @@
+<header class="site-header{% if sticky %} site-header--sticky{% endif %}" data-site-header>
+  <a class="site-header__skip" href="{{ skipTarget }}">Aller au contenu</a>
+  <div class="site-header__bar container">
+    <a class="site-header__brand" href="{{ homeHref }}">{% if logoSrc %}<img class="site-header__logo" src="{{ logoSrc }}" alt="" width="32" height="32">{% endif %}<span class="site-header__name">{{ siteName }}</span></a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="{{ navId }}" data-site-header-toggle><svg class="site-header__toggle-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path class="site-header__bars" d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="site-header__cross" d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Menu</span></button>
+    <nav class="site-header__nav" id="{{ navId }}" aria-label="{{ navLabel }}" data-site-header-nav>
+      <ul class="site-header__list">
+        {%- for link in links %}
+        <li><a class="site-header__link" href="{{ link.href }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.text }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

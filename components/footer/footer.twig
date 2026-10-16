@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    {% if links|length %}<nav class="site-footer__nav" aria-label="{{ navLabel }}">
+      <ul class="site-footer__list">
+        {%- for item in links %}
+        <li>{% include 'dev/components/link/link.twig' with { text: item.text, href: item.href } only %}</li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    {% endif %}<p class="site-footer__copyright">{{ copyright }}</p>
+  </div>
+</footer>

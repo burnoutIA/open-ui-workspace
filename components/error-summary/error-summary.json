@@ -1,0 +1,39 @@
+{
+  "name": "Error Summary",
+  "status": "done",
+  "level": "molecule",
+  "category": "Forms",
+  "description": "Récapitulatif des erreurs d'un formulaire refusé : liste les erreurs avec un lien vers chaque champ, reçoit le focus au chargement.",
+  "content": {
+    "title": {
+      "label": "Titre",
+      "type": "text",
+      "default": "Le formulaire contient des erreurs"
+    },
+    "errors": {
+      "label": "Erreurs",
+      "type": "array",
+      "item": {
+        "label": "Erreur",
+        "addLabel": "Ajouter une erreur",
+        "fields": {
+          "field": { "label": "Identifiant du champ", "type": "text", "default": "" },
+          "message": { "label": "Message", "type": "text", "default": "" }
+        }
+      },
+      "default": []
+    },
+    "id": {
+      "label": "Identifiant",
+      "type": "text",
+      "default": "erreurs"
+    }
+  },
+  "preview": {
+    "title": "Le message n'a pas été envoyé",
+    "errors": [
+      { "field": "email", "message": "Saisissez une adresse e-mail au format nom@exemple.fr." },
+      { "field": "message", "message": "Saisissez votre message." }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Badge",
+  "status": "done",
+  "level": "atom",
+  "category": "Feedback",
+  "description": "Étiquette courte qui qualifie un statut ou une catégorie.",
+  "variants": {
+    "tone": {
+      "label": "Tonalité",
+      "type": "select",
+      "default": "neutral",
+      "options": ["neutral", "info", "success", "warning", "danger"]
+    }
+  },
+  "content": {
+    "text": {
+      "label": "Texte",
+      "type": "text",
+      "default": "Brouillon"
+    }
+  }
+}

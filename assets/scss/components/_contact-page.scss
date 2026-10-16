@@ -1,0 +1,32 @@
+@use '../base/mixins' as *;
+
+.contact-page {
+  &__title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__intro {
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+  }
+
+  &__errors {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  &__form {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+
+  &__required,
+  &__privacy {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  &__sr {
+    @include visually-hidden;
+  }
+}

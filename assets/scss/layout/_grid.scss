@@ -1,0 +1,73 @@
+// =============================================================================
+// Grille 12 colonnes — mobile first
+// =============================================================================
+//
+// Classes contractuelles :
+//   .grid                       conteneur 12 colonnes, espacement --grid-gap
+//   .grid--gap-{none|sm|md|lg|xl}
+//   .grid--align-{start|center|end|stretch}
+//   .grid__item                 enfant ; occupe 12 colonnes par défaut (empilé sur mobile)
+//   .grid__item--span-{1..12}            largeur à toutes les tailles
+//   .grid__item--{sm|md|lg|xl}-span-{1..12}  largeur à partir du palier
+//   .grid__item--{md|lg}-start-{1..12}       colonne de départ (décalage)
+//
+// Exemple, 2 colonnes égales à partir de md :
+//   <div class="grid">
+//     <div class="grid__item grid__item--md-span-6">…</div>
+//     <div class="grid__item grid__item--md-span-6">…</div>
+//   </div>
+//
+// L'ordre du DOM reste l'ordre de lecture et de tabulation : ne pas réordonner visuellement les items.
+
+@use 'sass:map';
+@use '../base/breakpoints' as *;
+
+$columns: 12;
+$gaps: (
+  'none': 0,
+  'sm': var(--spacing-sm),
+  'md': var(--spacing-md),
+  'lg': var(--spacing-lg),
+  'xl': var(--spacing-xl)
+);
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: var(--grid-gap);
+
+  @each $name, $value in $gaps {
+    &--gap-#{$name} { gap: $value; }
+  }
+
+  &--align-start { align-items: start; }
+  &--align-center { align-items: center; }
+  &--align-end { align-items: end; }
+  &--align-stretch { align-items: stretch; }
+}
+
+.grid__item {
+  // Seule la fin est fixée : le début reste libre pour les classes --start-*.
+  grid-column-end: span $columns;
+  min-width: 0;
+
+  @for $i from 1 through $columns {
+    &--span-#{$i} { grid-column-end: span $i; }
+  }
+
+  @each $bp in map.keys($breakpoints) {
+    @include respond-to($bp) {
+      @for $i from 1 through $columns {
+        &--#{$bp}-span-#{$i} { grid-column-end: span $i; }
+      }
+    }
+  }
+
+  @each $bp in ('md', 'lg') {
+    @include respond-to($bp) {
+      @for $i from 1 through $columns {
+        &--#{$bp}-start-#{$i} { grid-column-start: $i; }
+      }
+    }
+  }
+}

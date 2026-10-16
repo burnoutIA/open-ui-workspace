@@ -1,0 +1,11 @@
+{% if errors|length %}
+<section class="error-summary" id="{{ id }}" tabindex="-1" aria-labelledby="{{ id }}-titre" data-error-summary>
+  <h2 class="error-summary__title" id="{{ id }}-titre">{{ title }}</h2>
+  <p>{{ errors|length > 1 ? 'Corrigez les ' ~ errors|length ~ ' erreurs suivantes :' : "Corrigez l'erreur suivante :" }}</p>
+  <ul class="error-summary__list">
+    {% for error in errors %}
+    <li>{% include 'dev/components/link/link.twig' with { text: error.message, href: '#' ~ error.field } only %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

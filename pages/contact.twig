@@ -1,0 +1,79 @@
+{% extends 'dev/layouts/base.twig' %}
+{% set current = '/contact.html' %}
+
+{# Erreurs telles qu'un serveur les renverrait après un envoi refusé. #}
+{% set errors = showErrors ? [
+  { field: 'email', message: 'Saisissez une adresse e-mail au format nom@exemple.fr.' },
+  { field: 'message', message: 'Saisissez votre message.' }
+] : [] %}
+{% set errorFor = {} %}
+{% for error in errors %}{% set errorFor = errorFor|merge({ (error.field): error.message }) %}{% endfor %}
+
+{% block title %}{% if showErrors %}Erreur : {% endif %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="grid">
+      <div class="grid__item grid__item--md-span-10 grid__item--lg-span-7">
+        <h1 class="contact-page__title">{{ title }}</h1>
+        <p class="contact-page__intro">{{ intro }}</p>
+
+        {% if errors|length %}
+        <div class="contact-page__errors">
+          {% include 'dev/components/error-summary/error-summary.twig' with {
+            title: "Le message n'a pas été envoyé",
+            errors: errors
+          } only %}
+        </div>
+        {% endif %}
+
+        <form class="contact-page__form" action="/contact" method="post">
+          <p class="contact-page__required">Les champs marqués d'un <span aria-hidden="true">*</span><span class="contact-page__sr">astérisque</span> sont obligatoires.</p>
+
+          {% include 'dev/components/form-field/form-field.twig' with {
+            label: 'Nom',
+            id: 'name',
+            type: 'text',
+            autocomplete: 'name',
+            required: true,
+            value: showErrors ? 'Jeanne Martin' : ''
+          } only %}
+
+          {% include 'dev/components/form-field/form-field.twig' with {
+            label: 'Adresse e-mail',
+            id: 'email',
+            type: 'email',
+            autocomplete: 'email',
+            help: 'Nous l’utilisons uniquement pour vous répondre.',
+            required: true,
+            value: showErrors ? 'jeanne.martin' : '',
+            error: errorFor.email|default('')
+          } only %}
+
+          {% include 'dev/components/form-field/form-field.twig' with {
+            label: 'Téléphone',
+            id: 'phone',
+            type: 'tel',
+            autocomplete: 'tel',
+            help: 'Facultatif. Si vous préférez être rappelé.'
+          } only %}
+
+          {% include 'dev/components/form-field/form-field.twig' with {
+            label: 'Message',
+            id: 'message',
+            type: 'textarea',
+            rows: 6,
+            required: true,
+            error: errorFor.message|default('')
+          } only %}
+
+          <p class="contact-page__privacy">Vos données servent uniquement à traiter votre demande et sont conservées un an. <a class="link link--inline" href="/donnees-personnelles">En savoir plus sur vos données personnelles</a></p>
+
+          <div class="contact-page__actions">
+            {% include 'dev/components/button/button.twig' with { type: 'submit', text: submitText } only %}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

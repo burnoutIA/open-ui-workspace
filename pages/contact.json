@@ -1,0 +1,29 @@
+{
+  "name": "Contact",
+  "status": "done",
+  "description": "Page de contact : formulaire nom, e-mail, téléphone facultatif et message.",
+  "variants": {
+    "showErrors": {
+      "label": "Envoi refusé (erreurs de saisie)",
+      "type": "checkbox",
+      "default": false
+    }
+  },
+  "content": {
+    "title": {
+      "label": "Titre",
+      "type": "text",
+      "default": "Nous contacter"
+    },
+    "intro": {
+      "label": "Introduction",
+      "type": "text",
+      "default": "Une question, un projet ? Écrivez-nous, nous répondons sous deux jours ouvrés."
+    },
+    "submitText": {
+      "label": "Texte du bouton",
+      "type": "text",
+      "default": "Envoyer le message"
+    }
+  }
+}

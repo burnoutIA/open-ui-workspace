@@ -1,0 +1,44 @@
+{
+  "name": "Button",
+  "status": "done",
+  "level": "atom",
+  "category": "Actions",
+  "description": "Déclenche une action dans la page ou soumet un formulaire.",
+  "variants": {
+    "variant": {
+      "label": "Variante",
+      "type": "select",
+      "default": "primary",
+      "options": ["primary", "secondary", "ghost", "danger"]
+    },
+    "size": {
+      "label": "Taille",
+      "type": "select",
+      "default": "md",
+      "options": ["sm", "md", "lg"]
+    },
+    "type": {
+      "label": "Type HTML",
+      "type": "select",
+      "default": "button",
+      "options": ["button", "submit", "reset"]
+    },
+    "full": {
+      "label": "Pleine largeur",
+      "type": "checkbox",
+      "default": false
+    },
+    "disabled": {
+      "label": "Désactivé",
+      "type": "checkbox",
+      "default": false
+    }
+  },
+  "content": {
+    "text": {
+      "label": "Texte",
+      "type": "text",
+      "default": "Enregistrer"
+    }
+  }
+}

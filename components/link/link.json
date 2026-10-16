@@ -1,0 +1,32 @@
+{
+  "name": "Link",
+  "status": "done",
+  "level": "atom",
+  "category": "Navigation",
+  "description": "Lien de navigation vers une page, une ancre ou une ressource externe.",
+  "variants": {
+    "variant": {
+      "label": "Variante",
+      "type": "select",
+      "default": "inline",
+      "options": ["inline", "standalone"]
+    },
+    "newWindow": {
+      "label": "Ouvre une nouvelle fenêtre",
+      "type": "checkbox",
+      "default": false
+    }
+  },
+  "content": {
+    "text": {
+      "label": "Texte",
+      "type": "text",
+      "default": "Consulter la documentation"
+    },
+    "href": {
+      "label": "Destination",
+      "type": "text",
+      "default": "/documentation"
+    }
+  }
+}

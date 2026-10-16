@@ -1,0 +1,24 @@
+{#- Gabarit de base : document, header, contenu principal, footer.
+    La page définit `current` (son URL, pour marquer la navigation) et remplit les blocs title et content. -#}
+{% set navLinks = [] %}
+{% for item in site.nav|default([]) %}
+  {% set navLinks = navLinks|merge([item|merge({ current: item.href == current|default('') })]) %}
+{% endfor %}
+<!DOCTYPE html>
+<html lang="{{ site.lang|default('fr') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %} – {{ site.name }}</title>
+  <link rel="stylesheet" href="/dev/assets/scss/style.scss">
+  <script type="module" src="/dev/assets/js/main.js"></script>
+  {% block head %}{% endblock %}
+</head>
+<body class="page">
+  {% include 'dev/components/header/header.twig' with { siteName: site.name, links: navLinks } only %}
+  <main id="contenu" class="page__main" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'dev/components/footer/footer.twig' with { links: site.legalLinks, copyright: site.copyright } only %}
+</body>
+</html>

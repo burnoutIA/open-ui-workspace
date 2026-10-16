@@ -1,0 +1,37 @@
+{
+  "name": "Footer",
+  "status": "done",
+  "level": "organism",
+  "category": "Navigation",
+  "description": "Pied de page minimal : liens légaux et copyright.",
+  "content": {
+    "links": {
+      "label": "Liens légaux",
+      "type": "array",
+      "item": {
+        "label": "Lien",
+        "addLabel": "Ajouter un lien",
+        "fields": {
+          "text": { "label": "Libellé", "type": "text", "default": "Nouveau lien" },
+          "href": { "label": "Destination", "type": "text", "default": "/" }
+        }
+      },
+      "default": [
+        { "text": "Mentions légales", "href": "/mentions-legales" },
+        { "text": "Données personnelles", "href": "/donnees-personnelles" },
+        { "text": "Accessibilité : non conforme", "href": "/accessibilite" },
+        { "text": "Plan du site", "href": "/plan-du-site" }
+      ]
+    },
+    "navLabel": {
+      "label": "Nom accessible de la navigation",
+      "type": "text",
+      "default": "Liens légaux"
+    },
+    "copyright": {
+      "label": "Copyright",
+      "type": "text",
+      "default": "© 2026 Mon site"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Header",
+  "status": "done",
+  "level": "organism",
+  "category": "Navigation",
+  "description": "En-tête de site : lien d'évitement, marque et navigation principale, repliée derrière un bouton Menu sur petit écran.",
+  "variants": {
+    "sticky": {
+      "label": "Reste visible au défilement",
+      "type": "checkbox",
+      "default": false
+    }
+  },
+  "content": {
+    "siteName": {
+      "label": "Nom du site",
+      "type": "text",
+      "default": "Mon site"
+    },
+    "homeHref": {
+      "label": "Lien de l'accueil",
+      "type": "text",
+      "default": "/"
+    },
+    "logoSrc": {
+      "label": "Image du logo (facultatif)",
+      "type": "text",
+      "default": ""
+    },
+    "links": {
+      "label": "Liens de navigation",
+      "type": "array",
+      "item": {
+        "label": "Lien",
+        "addLabel": "Ajouter un lien",
+        "fields": {
+          "text": { "label": "Libellé", "type": "text", "default": "Nouveau lien" },
+          "href": { "label": "Destination", "type": "text", "default": "/" },
+          "current": { "label": "Page courante", "type": "checkbox", "default": false }
+        }
+      },
+      "default": [
+        { "text": "Accueil", "href": "/", "current": true },
+        { "text": "Services", "href": "/services", "current": false },
+        { "text": "Réalisations", "href": "/realisations", "current": false },
+        { "text": "À propos", "href": "/a-propos", "current": false },
+        { "text": "Contact", "href": "/contact", "current": false }
+      ]
+    },
+    "navLabel": {
+      "label": "Nom accessible de la navigation",
+      "type": "text",
+      "default": "Navigation principale"
+    },
+    "navId": {
+      "label": "Identifiant du panneau de navigation",
+      "type": "text",
+      "default": "site-nav"
+    },
+    "skipTarget": {
+      "label": "Cible du lien d'évitement",
+      "type": "text",
+      "default": "#contenu"
+    }
+  }
+}

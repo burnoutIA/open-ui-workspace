@@ -1,0 +1,23 @@
+{% set name = name is empty ? id : name %}
+{#- Aide et erreur sont reliées au champ ; l'erreur est lue en dernier, juste avant la saisie. -#}
+{% set describedBy = (help ? id ~ '-help' : '') ~ (help and error ? ' ' : '') ~ (error ? id ~ '-error' : '') -%}
+<div class="form-field{% if error %} form-field--invalid{% endif %}">
+  <label class="form-field__label" for="{{ id }}">{{ label }}{% if required %} <span class="form-field__required" aria-hidden="true">*</span>{% endif %}</label>
+  {% if help %}<p class="form-field__help" id="{{ id }}-help">{{ help }}</p>
+  {% endif %}{% if error %}<p class="form-field__error" id="{{ id }}-error"><span class="form-field__error-prefix">Erreur :</span> {{ error }}</p>
+  {% endif %}{% if type == 'textarea' %}<textarea class="form-field__input form-field__input--multiline" id="{{ id }}" name="{{ name }}" rows="{{ rows }}"
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+    {%- if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
+    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+    {%- if required %} required{% endif %}
+    {%- if error %} aria-invalid="true"{% endif %}
+    {%- if disabled %} disabled{% endif %}>{{ value }}</textarea>
+  {% else %}<input class="form-field__input" type="{{ type }}" id="{{ id }}" name="{{ name }}"
+    {%- if value %} value="{{ value }}"{% endif %}
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+    {%- if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
+    {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+    {%- if required %} required{% endif %}
+    {%- if error %} aria-invalid="true"{% endif %}
+    {%- if disabled %} disabled{% endif %}>
+  {% endif %}</div>

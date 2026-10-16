@@ -1,0 +1,36 @@
+@use '../base/mixins' as *;
+
+.link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration-thickness: 2px;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: var(--radius-sm);
+  }
+
+  &--standalone {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    margin-inline-start: var(--spacing-xs);
+  }
+
+  // Annonce l'ouverture d'une nouvelle fenêtre aux lecteurs d'écran ; l'icône la signale visuellement.
+  &__hint {
+    @include visually-hidden;
+  }
+}

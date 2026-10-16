@@ -1,0 +1,81 @@
+{
+  "name": "Form Field",
+  "status": "done",
+  "level": "molecule",
+  "category": "Forms",
+  "description": "Champ de formulaire complet en un seul composant : libellé, aide, message d'erreur et saisie (une ligne ou zone de texte) reliés entre eux.",
+  "variants": {
+    "type": {
+      "label": "Type HTML",
+      "type": "select",
+      "default": "text",
+      "options": [
+        "text",
+        "email",
+        "tel",
+        "url",
+        "password",
+        "search",
+        "number",
+        "textarea"
+      ]
+    },
+    "required": {
+      "label": "Obligatoire",
+      "type": "checkbox",
+      "default": false
+    },
+    "disabled": {
+      "label": "Désactivé",
+      "type": "checkbox",
+      "default": false
+    },
+    "rows": {
+      "label": "Lignes (zone de texte)",
+      "type": "number",
+      "default": 5
+    }
+  },
+  "content": {
+    "label": {
+      "label": "Libellé",
+      "type": "text",
+      "default": "Libellé du champ"
+    },
+    "id": {
+      "label": "Identifiant",
+      "type": "text",
+      "default": "champ"
+    },
+    "name": {
+      "label": "Nom envoyé (défaut : identifiant)",
+      "type": "text",
+      "default": ""
+    },
+    "help": {
+      "label": "Aide",
+      "type": "text",
+      "default": ""
+    },
+    "error": {
+      "label": "Message d'erreur",
+      "type": "text",
+      "default": ""
+    },
+    "placeholder": {
+      "label": "Exemple de saisie",
+      "type": "text",
+      "default": ""
+    },
+    "autocomplete": {
+      "label": "Autocomplétion",
+      "type": "text",
+      "default": ""
+    },
+    "value": {
+      "label": "Valeur",
+      "type": "text",
+      "default": ""
+    }
+  }
+}
