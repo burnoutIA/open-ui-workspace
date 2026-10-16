@@ -17,8 +17,16 @@
         "label": "Erreur",
         "addLabel": "Ajouter une erreur",
         "fields": {
-          "field": { "label": "Identifiant du champ", "type": "text", "default": "" },
-          "message": { "label": "Message", "type": "text", "default": "" }
+          "field": {
+            "label": "Identifiant du champ",
+            "type": "text",
+            "default": ""
+          },
+          "message": {
+            "label": "Message",
+            "type": "text",
+            "default": ""
+          }
         }
       },
       "default": []
@@ -26,14 +34,21 @@
     "id": {
       "label": "Identifiant",
       "type": "text",
-      "default": "erreurs"
+      "default": "erreurs",
+      "stress": false
     }
   },
   "preview": {
     "title": "Le message n'a pas été envoyé",
     "errors": [
-      { "field": "email", "message": "Saisissez une adresse e-mail au format nom@exemple.fr." },
-      { "field": "message", "message": "Saisissez votre message." }
+      {
+        "field": "email",
+        "message": "Saisissez une adresse e-mail au format nom@exemple.fr."
+      },
+      {
+        "field": "message",
+        "message": "Saisissez votre message."
+      }
     ]
   }
 }

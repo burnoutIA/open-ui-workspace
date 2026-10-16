@@ -9,7 +9,10 @@
       "label": "Variante",
       "type": "select",
       "default": "inline",
-      "options": ["inline", "standalone"]
+      "options": [
+        "inline",
+        "standalone"
+      ]
     },
     "newWindow": {
       "label": "Ouvre une nouvelle fenêtre",
@@ -26,7 +29,8 @@
     "href": {
       "label": "Destination",
       "type": "text",
-      "default": "/documentation"
+      "default": "/documentation",
+      "stress": false
     }
   }
 }

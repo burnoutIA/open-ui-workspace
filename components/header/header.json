@@ -20,12 +20,14 @@
     "homeHref": {
       "label": "Lien de l'accueil",
       "type": "text",
-      "default": "/"
+      "default": "/",
+      "stress": false
     },
     "logoSrc": {
       "label": "Image du logo (facultatif)",
       "type": "text",
-      "default": ""
+      "default": "",
+      "stress": false
     },
     "links": {
       "label": "Liens de navigation",
@@ -34,17 +36,49 @@
         "label": "Lien",
         "addLabel": "Ajouter un lien",
         "fields": {
-          "text": { "label": "Libellé", "type": "text", "default": "Nouveau lien" },
-          "href": { "label": "Destination", "type": "text", "default": "/" },
-          "current": { "label": "Page courante", "type": "checkbox", "default": false }
+          "text": {
+            "label": "Libellé",
+            "type": "text",
+            "default": "Nouveau lien"
+          },
+          "href": {
+            "label": "Destination",
+            "type": "text",
+            "default": "/"
+          },
+          "current": {
+            "label": "Page courante",
+            "type": "checkbox",
+            "default": false
+          }
         }
       },
       "default": [
-        { "text": "Accueil", "href": "/", "current": true },
-        { "text": "Services", "href": "/services", "current": false },
-        { "text": "Réalisations", "href": "/realisations", "current": false },
-        { "text": "À propos", "href": "/a-propos", "current": false },
-        { "text": "Contact", "href": "/contact", "current": false }
+        {
+          "text": "Accueil",
+          "href": "/",
+          "current": true
+        },
+        {
+          "text": "Services",
+          "href": "/services",
+          "current": false
+        },
+        {
+          "text": "Réalisations",
+          "href": "/realisations",
+          "current": false
+        },
+        {
+          "text": "À propos",
+          "href": "/a-propos",
+          "current": false
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "current": false
+        }
       ]
     },
     "navLabel": {
@@ -55,12 +89,14 @@
     "navId": {
       "label": "Identifiant du panneau de navigation",
       "type": "text",
-      "default": "site-nav"
+      "default": "site-nav",
+      "stress": false
     },
     "skipTarget": {
       "label": "Cible du lien d'évitement",
       "type": "text",
-      "default": "#contenu"
+      "default": "#contenu",
+      "stress": false
     }
   }
 }

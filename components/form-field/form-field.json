@@ -45,12 +45,14 @@
     "id": {
       "label": "Identifiant",
       "type": "text",
-      "default": "champ"
+      "default": "champ",
+      "stress": false
     },
     "name": {
       "label": "Nom envoyé (défaut : identifiant)",
       "type": "text",
-      "default": ""
+      "default": "",
+      "stress": false
     },
     "help": {
       "label": "Aide",
@@ -70,7 +72,8 @@
     "autocomplete": {
       "label": "Autocomplétion",
       "type": "text",
-      "default": ""
+      "default": "",
+      "stress": false
     },
     "value": {
       "label": "Valeur",
