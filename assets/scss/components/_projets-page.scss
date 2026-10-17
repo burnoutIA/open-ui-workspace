@@ -1,0 +1,17 @@
+.projets-page {
+  &__title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__intro {
+    max-width: 40rem;
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+  }
+
+  // Les cartes d'une même ligne prennent la même hauteur.
+  &__list > li {
+    display: grid;
+  }
+}

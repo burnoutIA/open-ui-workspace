@@ -1,0 +1,38 @@
+{% extends 'dev/layouts/base.twig' %}
+{% set current = '/projets.html' %}
+
+{# Projets de démonstration : images d'exemple, en attendant les vraies photos. #}
+{% set projects = [
+  { title: "Rénovation d'un atelier en centre-ville", category: 'Rénovation', date: 'Mars 2026', text: "Un ancien atelier de menuiserie transformé en espace de travail lumineux, en gardant sa charpente d'origine.", href: '/projets/atelier' },
+  { title: 'Extension bois pour une maison de ville', category: 'Construction', date: 'Janvier 2026', text: 'Une pièce de vie ouverte sur le jardin, en ossature bois et grandes baies vitrées.', href: '/projets/extension-bois' },
+  { title: "Cuisine sur mesure dans un appartement haussmannien", category: 'Aménagement', date: 'Novembre 2025', text: 'Des rangements intégrés aux moulures et une îlot central en chêne massif.', href: '/projets/cuisine' },
+  { title: 'Réhabilitation énergétique d’un pavillon', category: 'Rénovation', date: 'Septembre 2025', text: 'Isolation par l’extérieur, menuiseries neuves et pompe à chaleur : la consommation divisée par trois.', href: '/projets/pavillon' },
+  { title: 'Bureaux partagés dans un ancien garage', category: 'Aménagement', date: 'Juin 2025', text: 'Vingt postes de travail, une salle de réunion et un atelier de prototypage.', href: '/projets/bureaux' },
+  { title: 'Surélévation d’un immeuble de deux étages', category: 'Construction', date: 'Mars 2025', text: 'Un logement de 90 m² ajouté sur le toit, sans interrompre la vie des occupants.', href: '/projets/surelevation' }
+] %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="projets-page__title">{{ title }}</h1>
+    <p class="projets-page__intro">{{ intro }}</p>
+
+    <ul class="grid projets-page__list" role="list">
+      {% for project in projects %}
+      <li class="grid__item{% if display == 'grille' %} grid__item--md-span-6 grid__item--lg-span-4{% endif %}">
+        {% include 'dev/components/card/card.twig' with {
+          layout: display == 'liste' ? 'horizontal' : 'vertical',
+          headingLevel: 'h2',
+          image: { src: fake_image(1600, 900, project.title), alt: '' },
+          badge: project.category,
+          title: project.title,
+          meta: project.date,
+          text: project.text,
+          href: project.href
+        } only %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{
+  "name": "Projets",
+  "status": "done",
+  "description": "Liste des projets réalisés, en grille de cartes ou en liste.",
+  "variants": {
+    "display": {
+      "label": "Affichage",
+      "type": "select",
+      "default": "grille",
+      "options": ["grille", "liste"]
+    }
+  },
+  "content": {
+    "title": {
+      "label": "Titre",
+      "type": "text",
+      "default": "Nos projets"
+    },
+    "intro": {
+      "label": "Introduction",
+      "type": "text",
+      "default": "Rénovations, aménagements et constructions : une sélection de chantiers menés ces dernières années."
+    }
+  }
+}
